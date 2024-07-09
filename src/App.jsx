@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Header from './components/Header.jsx';
 import Shop from './components/Shop.jsx';
 import { DUMMY_PRODUCTS } from './dummy-products.js';
-import { CartContext } from './state/shopping-cart-context.jsx';
+import { CartContext } from './store/shopping-cart-context.jsx';
 
 function App() {
   const [shoppingCart, setShoppingCart] = useState({
@@ -67,7 +67,7 @@ function App() {
   }
 
   return (
-    <CartContext.Provider>
+    <CartContext.Provider value={{ items : [] }}>
       <Header
         cart={shoppingCart}
         onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
